@@ -9,12 +9,17 @@ def rutaArchivo(request, nombreArchivo):
     nombreArchivo = "%s%s" % (nowtime, nombreOriginal)
     return os.path.join('uploads/', nombreArchivo)
 #
-class Categoria(models.Model):
+class Categoria(models.Model): 
+    slug = models.CharField(max_length=150, null=False, blank=False )
     nombreCategoria = models.CharField(max_length=150, null=False, blank=False)
+    imagenCategoria = models.ImageField(upload_to=rutaArchivo, null=True, blank=True)
+    estado = models.BooleanField(default=False, help_text="0=habilitado, 1=desabilitado" )
+
     def __str__(self):
         return self.nombreCategoria
 
 class Producto(models.Model):
+    slug = models.CharField(max_length=150, null=False, blank=False )
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     nombreProducto = models.CharField(max_length=150, null=False, blank=False)
     imagenProducto = models.ImageField(upload_to=rutaArchivo, null=True, blank=True)
