@@ -25,7 +25,7 @@ $('.decrement-btn').click(function (e) {
     if(value > 1)
     {
         value--;
-        $(this).closest('.productoData').find('.cantidadInput').val(value);
+         $(this).closest('.productoData').find('.cantidadInput').val(value);
     }
 });
 });
