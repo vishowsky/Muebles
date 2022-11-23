@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
   </head>
   <body>
     {% include 'tienda/inc/navbar.html' %}
@@ -15,7 +18,7 @@
 
 
     {% block content %}{% endblock content %}
-    {% block scripts %}{% endblock scripts %}
+   
 
     {% comment  %} jquery {% endcomment %}
     <script src="{% static '/js/jquery-3.6.1.min.js' %}"></script>
@@ -25,5 +28,19 @@
 
     {% comment  %} Bootstrap {% endcomment %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+   
+    {% comment  %} alertify{% endcomment %}
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+    <script>
+      alertify.set('notifier','position', 'top-center');
+
+      {% for msg in messages %}
+      alertify.success('{{msg}}');
+      {% endfor%}
+    </script>
+    
+    {% block scripts %}{% endblock scripts %}
+    
   </body>
 </html>
