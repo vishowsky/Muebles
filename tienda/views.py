@@ -6,7 +6,7 @@ def home(request):
     return render(request, "tienda/index.html")
 
 def categorias(request):
-    categoria = Categoria.objects.filter()
+    categoria = Categoria.objects.filter(estado=0)
     context = {'categoria':categoria}
-    return render(request, "tienda/categorias.html",context)
+    return render(request, "tienda/categorias.html", context)
 

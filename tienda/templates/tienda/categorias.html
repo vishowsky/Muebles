@@ -8,18 +8,20 @@
                 <h1>Categorias</h1>
                 <hr>
                 <div class="row">
-                {% for item in categoria %}
-                    <div class="col-md-3">
-                        <div class="card">
-                            <a href="{% url 'categorias' item.nombreProducto %}">
-                            <div class="card-body">
+                    {% for item in categoria %}
+                    <div class="col-md-3">                       
+                                <div class="card">
+                                <div class="card-body">    
+                                <div class="category-image">
+                                <img class="w-100" src="{{ item.imagenCategoria.url}}" alt="imagen categoria"/>
                                 <h4 class="text-center">{{ item.nombreCategoria}}</h4>
+                                </div>
                             </div>
-                        </a>
-                        </div>
                     </div>
+                   
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
