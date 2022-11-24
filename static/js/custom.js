@@ -28,4 +28,26 @@ $('.decrement-btn').click(function (e) {
          $(this).closest('.productoData').find('.cantidadInput').val(value);
     }
 });
+
+$('.agregarAlCarroBtn').click(function (e){
+    e.preventDefault();
+
+    var idProducto = $(this.closest('.productoData')).find('.productoId').val();
+    var productoCantidad= $(this).closest('.productoData').find('.cantidadInput').val();
+    var token = $('input[name=csfmiddlewaretoken]').val();
+    $.ajax({
+        method: "POST",
+        url: "/agregarAlCarro",
+        data: {
+            'idProducto': idProducto,
+            'productoCantidad': productoCantidad,
+            csfmiddlewaretoken: token
+        },
+        dataType: "dataType",
+        success: function(response){
+            console.log(response);
+        }
+    });
+});
+
 });

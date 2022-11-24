@@ -33,3 +33,9 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombreProducto
+    
+class Carrito(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidadProducto = models.IntegerField(null=False, blank=False)
+    fechaCreacion = models.DateTimeField(auto_now_add=True)

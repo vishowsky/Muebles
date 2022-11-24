@@ -38,4 +38,5 @@ def logoutpage(request):
         logout(request)
         messages.success(request,"Sesion cerrada correctamente")
     return redirect("/")
+
         

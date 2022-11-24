@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-from tienda.controller import authview
+from tienda.controller import authview, carro
 
 
 urlpatterns = [
@@ -13,5 +13,7 @@ urlpatterns = [
     path('registro/', authview.registro, name="registro"),
     path('login/', authview.loginpage, name="loginpage"),
     path('logout/', authview.logoutpage, name="logout"),
+    
+    path('agregarAlCarro', carro.agregarAlCarro, name="agregarAlCarrito")
 ]
 

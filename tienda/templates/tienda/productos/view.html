@@ -36,6 +36,8 @@
                         {% endif %}
                         <div class="row mt-2">
                             <div class="col-md-3">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{ productos.id  }}" class="productoID">
                                 <label for="Cantidad">Cantidad</label>
                                 <div class="input-group text-center mb-3" style="width:130px;">
                                     <button class="input-group-text decrement-btn">-</button>
@@ -46,7 +48,7 @@
                             <div class="col-md-9">
                                 <br>
                                 {% if productos.cantidad > 0 %}
-                                    <button type="button" class="btn btn-primary me-3 float-start">Agregar al carro</button>
+                                    <button type="button" class="btn btn-primary me-3 float-start agregarAlCarroBtn">Agregar al carro</button>
                                 {% endif %}
                                 <button type="button" class="btn btn-success me-3 float-start">Agregar a la lista de deseos</button>
                             </div>
